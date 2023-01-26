@@ -12,7 +12,7 @@ function getPlayerChoice{
     let input;
     let check = false;
 
-    while(check){
+    do {
        input = prompt("Enter your input:");
        input = input.toLowerCase();
        if(input == "rock"){
@@ -25,5 +25,6 @@ function getPlayerChoice{
         check = true;
        }
     }
+    while(check);
     return input;
 }
