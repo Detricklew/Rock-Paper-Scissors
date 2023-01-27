@@ -33,28 +33,27 @@ function playRound(computerchoice, playerchoice){
     let roundresult;
     let winner;
     if (playerchoice == 'rock' && computerchoice == 'scissors'){
-            roundresult = "You win this round";
+            roundresult = "You win this round!";
             winner = 1;
-            console.log(roundresult);
-            console.log("test rock");
             return [roundresult, winner];
     }
     else if(playerchoice == 'paper' && computerchoice == 'rock'){
-            roundresult = "You win this round";
+            roundresult = "You win this round!";
             winner = 1;
-            console.log(roundresult);
-            console.log("test paper");
             return [roundresult, winner];
     }
     else if(playerchoice == 'scissors' && computerchoice == 'paper'){
-            roundresult = "You win this round";
+            roundresult = "You win this round!";
             winner = 1;
-            console.log(roundresult);
-            console.log("test scissors");
             return [roundresult, winner];
     }
+    else if(playerchoice == computerchoice){
+        roundresult = "Tie Round!"
+        winner = 3;
+        return [roundresult, winner];
+    }
     else{
-        roundresult = "You lose this round";
+        roundresult = "You lose this round.....";
         winner = 2;
 
         return [roundresult, winner]; 
@@ -62,11 +61,45 @@ function playRound(computerchoice, playerchoice){
 }
 
 function game(){
-    let computerchoice = getComputerChoice();
-    let playerchoice = getPlayerChoice();
+    let player = 0;
+    let computer = 0;
 
-    let results = playRound(computerchoice, playerchoice);
-    return;
+    do{
+        if (computer == 5 || player == 5){
+            break;
+        }
+        let computerchoice = getComputerChoice();
+        let playerchoice = getPlayerChoice();
+
+        let results = playRound(computerchoice, playerchoice);
+
+        switch(results[1]){
+            case 1:
+                player++;
+                break;
+            case 2:
+                computer++;
+                break;
+            case 3:
+                break;
+            default:
+                console.log(`Ran into unexpected problem....`);
+                return;
+        }
+
+        console.log(results[0] + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
+        console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
+    }
+    while(player < 5 || computer < 5 );
+
+    if(player > computer){
+        console.log(`You won Congrats!`);
+        return;
+    }
+    else{
+        console.log(`You lost.`);
+        return;
+    }
 }
 
 game();
