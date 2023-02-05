@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div>
+    <div class="title">
         <h1>Rock Paper Scissors</h1>
     </div>
-    <div>
+    <div class="playspace">
         <div>
-            <h2>Player</h2>
-            <div>
-                <p>✌🏾</p><p>✊🏾</p><p>🖐🏾</p>
+            <h2 class="title2">Player</h2>
+            <div class="selection">
+                <p class="option" id="paper">✌🏾</p><p class="option" id="rock" >✊🏾</p><p class="option" id="scissors">🖐🏾</p>
+            </div>
+            <div class="result">
+                <h3>Score: 0</h3>
             </div>
         </div>
         <div>
-            <h2>Arena</h2>
+            <h2 class="title2">Arena</h2>
+            <div class="arena">
+               <div>✌🏾</div> <div>⚔️</div> <div>🖐🏾</div>
+            </div>
+            <div class="result"><h3>Player Wins!</h3></div>
         </div>
         <div>
-            <h2>Computer</h2>
-            <div>
+            <h2 class="title2">Computer</h2>
+            <div class="selection">
                 <p>✌🏾</p><p>✊🏾</p><p>🖐🏾</p>
+            </div>
+            <div class="result">
+                <h3>Score: 0</h3>
             </div>
         </div>
     </div>

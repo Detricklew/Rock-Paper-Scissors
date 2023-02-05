@@ -1,0 +1,49 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+
+.playspace{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 100px;
+}
+.arena{
+    font-size: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.option{
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+.option:hover{
+    background-color: rgb(230, 255, 9);
+    border-radius: 8px;
+    cursor: grab;
+}
+
+.selection{
+    font-size: 32px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.result{
+    margin: 19px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
