@@ -1,3 +1,13 @@
+let player = 0;
+let computer = 0;
+const playerchoices = document.querySelectorAll(`.option`);
+
+function loadOptions() {
+    playerchoices.forEach(playerchoice =>{
+        playerchoice.addEventListener('click',playRound(computerchoice, e.target.id.toString()))
+    })
+}
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -61,17 +71,16 @@ function playRound(computerchoice, playerchoice){
 }
 
 function game(){
-    let player = 0;
-    let computer = 0;
+
 
     do{
         if (computer == 5 || player == 5){
             break;
         }
         let computerchoice = getComputerChoice();
-        let playerchoice = getPlayerChoice();
+        const playerchoices = document.querySelectorAll(`.option`);
 
-        let results = playRound(computerchoice, playerchoice);
+        
 
         switch(results[1]){
             case 1:
