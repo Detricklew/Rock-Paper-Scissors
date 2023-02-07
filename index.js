@@ -4,7 +4,9 @@ const playerchoices = document.querySelectorAll(`.option`);
 
 function loadOptions() {
     playerchoices.forEach(playerchoice =>{
-        playerchoice.addEventListener('click',playRound(computerchoice, e.target.id.toString()))
+        playerchoice.addEventListener('click',function(e){
+            playRound(e.target.id.toString());
+        })
     })
 }
 
@@ -39,76 +41,50 @@ function getPlayerChoice(){
     return input;
 }
 
-function playRound(computerchoice, playerchoice){
+function playRound(playerchoice){
     let roundresult;
     let winner;
+    const computerchoice = getComputerChoice();
+
     if (playerchoice == 'rock' && computerchoice == 'scissors'){
             roundresult = "You win this round!";
             winner = 1;
-            return [roundresult, winner];
     }
     else if(playerchoice == 'paper' && computerchoice == 'rock'){
             roundresult = "You win this round!";
             winner = 1;
-            return [roundresult, winner];
     }
     else if(playerchoice == 'scissors' && computerchoice == 'paper'){
             roundresult = "You win this round!";
             winner = 1;
-            return [roundresult, winner];
     }
     else if(playerchoice == computerchoice){
         roundresult = "Tie Round!"
         winner = 3;
-        return [roundresult, winner];
     }
     else{
         roundresult = "You lose this round.....";
         winner = 2;
-
-        return [roundresult, winner]; 
     }
-}
 
-function game(){
-
-
-    do{
-        if (computer == 5 || player == 5){
+    switch(winner){
+        case 1:
+            player++;
             break;
-        }
-        let computerchoice = getComputerChoice();
-        const playerchoices = document.querySelectorAll(`.option`);
-
-        
-
-        switch(results[1]){
-            case 1:
-                player++;
-                break;
-            case 2:
-                computer++;
-                break;
-            case 3:
-                break;
-            default:
-                console.log(`Ran into unexpected problem....`);
-                return;
-        }
-
-        console.log(results[0] + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
-        console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
+        case 2:
+            computer++;
+            break;
+        case 3:
+            break;
+        default:
+            console.log(`Ran into unexpected problem....`);
+            return;
     }
-    while(player < 5 || computer < 5 );
 
-    if(player > computer){
-        console.log(`You won Congrats!`);
-        return;
-    }
-    else{
-        console.log(`You lost.`);
-        return;
-    }
+    console.log(roundresult + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
+    console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
 }
 
-game();
+
+
+loadOptions()
