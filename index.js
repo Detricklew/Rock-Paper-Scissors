@@ -4,9 +4,21 @@ const playerchoices = document.querySelectorAll(`.option`);
 
 function loadOptions() {
     playerchoices.forEach(playerchoice =>{
-        playerchoice.addEventListener('click',function(e){
-            playRound(e.target.id.toString());
+        playerchoice.addEventListener('click', function(evt){
+            playRound(evt);
         })
+    })
+}
+
+function removeSelect(){
+    playerchoices.forEach(playerchoice =>{
+        if(playerchoice.classList.contains('selected')){
+            playerchoice.classList.toggle('selected');
+            return;
+        }
+        else{
+            return;
+        }
     })
 }
 
@@ -41,7 +53,10 @@ function getPlayerChoice(){
     return input;
 }
 
-function playRound(playerchoice){
+function playRound(evt){
+    removeSelect();
+    evt.target.classList.toggle("selected");
+    const playerchoice = evt.target.id.toString();
     let roundresult;
     let winner;
     const computerchoice = getComputerChoice();
