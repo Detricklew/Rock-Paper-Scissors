@@ -22,6 +22,25 @@ function removeSelect(){
     })
 }
 
+function displayChoice(id, choice){
+    const div = document.querySelector(id);
+
+    div.textContent = "";
+
+    switch(choice){
+        case 'rock':
+            div.textContent = '✊🏾';
+            break;
+        case 'paper':
+            div.textContent = '🖐🏾';
+            break;
+        case 'scissors':
+            div.textContent = '✌🏾';
+            break;
+    }
+    return;
+}
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
