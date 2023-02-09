@@ -115,6 +115,9 @@ function playRound(evt){
             return;
     }
 
+    displayChoice("#playerchoice", playerchoice);
+    displayChoice("#compchoice", computerchoice);
+
     console.log(roundresult + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
     console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
 }
