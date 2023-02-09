@@ -79,6 +79,7 @@ function playRound(evt){
     let roundresult;
     let winner;
     const computerchoice = getComputerChoice();
+    const div = document.querySelector('#result');
 
     if (playerchoice == 'rock' && computerchoice == 'scissors'){
             roundresult = "You win this round!";
@@ -97,7 +98,7 @@ function playRound(evt){
         winner = 3;
     }
     else{
-        roundresult = "You lose this round.....";
+        roundresult = "Computer wins this round!";
         winner = 2;
     }
 
@@ -118,6 +119,7 @@ function playRound(evt){
     displayChoice("#playerchoice", playerchoice);
     displayChoice("#compchoice", computerchoice);
 
+    div.textContent = roundresult;
     console.log(roundresult + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
     console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
 }
