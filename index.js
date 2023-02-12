@@ -2,6 +2,15 @@ let player = 0;
 let computer = 0;
 const playerchoices = document.querySelectorAll(`.option`);
 
+function checkscore () {
+    if (player == 5 || computer == 5){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 function loadOptions() {
     playerchoices.forEach(playerchoice =>{
         playerchoice.addEventListener('click', function(evt){
@@ -80,6 +89,8 @@ function playRound(evt){
     let winner;
     const computerchoice = getComputerChoice();
     const div = document.querySelector('#result');
+    const playerscore = document.querySelector('#playerscore');
+    const compscore = document.querySelector('#compscore');
 
     if (playerchoice == 'rock' && computerchoice == 'scissors'){
             roundresult = "You win this round!";
@@ -120,6 +131,8 @@ function playRound(evt){
     displayChoice("#compchoice", computerchoice);
 
     div.textContent = roundresult;
+    playerscore.textContent = `Score: ${player}`;
+    compscore.textContent = `Score: ${computer}`;
     console.log(roundresult + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
     console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
 }
