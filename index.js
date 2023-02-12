@@ -40,6 +40,14 @@ function loadOptions() {
     })
 }
 
+function unloadOptions(){
+    playerchoices.forEach(playerchoice =>{
+        playerchoice.removeEventListener('click', function(evt){
+            playRound(evt);
+        })
+    })
+}
+
 function removeSelect(){
     playerchoices.forEach(playerchoice =>{
         if(playerchoice.classList.contains('selected')){
