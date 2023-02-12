@@ -105,6 +105,9 @@ function getPlayerChoice(){
 }
 
 function playRound(evt){
+    if(player == 5 || computer == 5){
+        return;
+    }
     removeSelect();
     evt.target.classList.toggle("selected");
     const playerchoice = evt.target.id.toString();
