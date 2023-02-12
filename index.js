@@ -19,7 +19,7 @@ function endGame(){
         restart.addEventListener("click", function(){
             window.location.reload();
         })
-        result.appendChild(result);
+        result.appendChild(restart);
         return;
     }
     else{
@@ -27,7 +27,7 @@ function endGame(){
         restart.addEventListener("click", function(){
             window.location.reload();
         })
-        result.appendChild(result);
+        result.appendChild(restart);
         return;
     }
 }
@@ -164,6 +164,14 @@ function playRound(evt){
     compscore.textContent = `Score: ${computer}`;
     console.log(roundresult + `\nYou picked ${playerchoice}! \nComputer picked ${computerchoice}!`);
     console.log(`Current score: \n Player: ${player}\n Computer: ${computer}`);
+
+    if (checkscore()){
+        endGame();
+        unloadOptions();
+    }
+    else{
+        return;
+    }
 }
 
 
