@@ -11,7 +11,26 @@ function checkscore () {
     }
 }
 
-
+function endGame(){
+    const result = document.querySelector('#field');
+    const restart = document.createElement('button');
+    if (player == 5){
+        restart.textContent = "You Won! (Restart)";
+        restart.addEventListener("click", function(){
+            window.location.reload();
+        })
+        result.appendChild(result);
+        return;
+    }
+    else{
+        restart.textContent = "You Lost..(Restart)";
+        restart.addEventListener("click", function(){
+            window.location.reload();
+        })
+        result.appendChild(result);
+        return;
+    }
+}
 
 function loadOptions() {
     playerchoices.forEach(playerchoice =>{
