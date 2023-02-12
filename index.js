@@ -36,17 +36,11 @@ function loadOptions() {
     playerchoices.forEach(playerchoice =>{
         playerchoice.addEventListener('click', function(evt){
             playRound(evt);
-        })
+        }, false)
     })
 }
 
-function unloadOptions(){
-    playerchoices.forEach(playerchoice =>{
-        playerchoice.removeEventListener('click', function(evt){
-            playRound(evt);
-        })
-    })
-}
+
 
 function removeSelect(){
     playerchoices.forEach(playerchoice =>{
@@ -167,7 +161,7 @@ function playRound(evt){
 
     if (checkscore()){
         endGame();
-        unloadOptions();
+        return;
     }
     else{
         return;
