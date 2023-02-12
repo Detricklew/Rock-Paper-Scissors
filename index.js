@@ -11,6 +11,8 @@ function checkscore () {
     }
 }
 
+
+
 function loadOptions() {
     playerchoices.forEach(playerchoice =>{
         playerchoice.addEventListener('click', function(evt){
